@@ -26,7 +26,9 @@ public class QuartzConfig {
         factoryBean.setJobClass(AlphaJob.class);
         factoryBean.setName("alphaJob");
         factoryBean.setGroup("alphaJobGroup");
+        //任务长久保存
         factoryBean.setDurability(true);
+        //任务恢复
         factoryBean.setRequestsRecovery(true);
         return factoryBean;
     }
@@ -38,6 +40,7 @@ public class QuartzConfig {
         factoryBean.setJobDetail(alphaJobDetail);
         factoryBean.setName("alphaTrigger");
         factoryBean.setGroup("alphaTriggerGroup");
+        //多长时间执行 3s
         factoryBean.setRepeatInterval(3000);
         factoryBean.setJobDataMap(new JobDataMap());
         return factoryBean;
